@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "chai": "^4.2.0",
+    "local-web-server": "^2.6.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}

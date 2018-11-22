@@ -1,3 +1,14 @@
+function calculateScore(players) {
+
+  players.map(player => {
+    const cardsSum = player.cards.reduce((a, b) => a + b, 0);
+    player.score = cardsSum;
+  });
+
+  return players;
+}
+
+
 function checkTheWinner(players) {
   const scores = [];
   const winners = [];
@@ -16,3 +27,4 @@ function checkTheWinner(players) {
 }
 
 module.exports.checkTheWinner = checkTheWinner;
+module.exports.calculateScore = calculateScore;

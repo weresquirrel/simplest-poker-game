@@ -1,10 +1,12 @@
 function calculateScore(players) {
 
   players.map(player => {
-    const cardsSum = player.cards.reduce((a, b) => a + b, 0);
-    player.score = cardsSum;
-  });
+    const cardValues = [];
+    player.cards.map(card => cardValues.push(card.value));
 
+    const cardsSum = cardValues.reduce((a, b) => a + b, 0);
+    player.score = player.score + cardsSum;
+  });
   return players;
 }
 

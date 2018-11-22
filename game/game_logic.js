@@ -1,10 +1,18 @@
 function checkTheWinner(players) {
-  let scores = [];
+  const scores = [];
+  const winners = [];
+
   players.map(player => scores.push(player.score));
 
-  let winnerScore = Math.max(...scores);
+  const winnerScore = Math.max(...scores);
 
-  return winnerScore;
+  players.map(player => {
+    if(player.score == winnerScore) {
+      winners.push(player);
+    }
+  });
+
+  return winners;
 }
 
 module.exports.checkTheWinner = checkTheWinner;

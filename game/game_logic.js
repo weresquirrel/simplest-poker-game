@@ -36,10 +36,24 @@ function getCards(cardsNum) {
     //   cards.push(currentCard);
     // }
 
-
     cards.push(currentCard);
 
   }
+
+  // I tried this below insted of the fo loop
+  // NEGATIVE - my computer found this far too overwhelming + it doesn't work either
+
+  // while(cards.length < cardsNum) {
+  //
+  //   const currentValue = (Math.floor(Math.random() * 13)) + 1;
+  //   const currentSuit = deck.suits[(Math.floor(Math.random() * deck.suits.length))];
+  //   const currentCard = { suit: currentSuit, value: currentValue};
+  //
+  //
+  //   const check = cards.find(card => card.suit == currentSuit);
+  //   if(!check) {
+  //       cards.push(currentCard);
+  //   }
 
   return cards;
 }

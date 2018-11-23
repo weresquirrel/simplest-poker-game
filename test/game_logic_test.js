@@ -1,5 +1,18 @@
 const expect = require('chai').expect;
 
+describe('Deck',() => {
+  const deck = require('../game/game_logic').deck;
+
+  it('should look like this',() => {
+    // expect(deck).to.be.an('object');
+    expect(deck).to.deep.equal({
+      suits: ['spades', 'diamonds', 'hearts', 'clubs'],
+      value: { min: 1, max: 13 },
+      quantity: 52
+    });
+  });
+});
+
 describe('Player',() => {
   const Player = require('../game/game_logic').Player;
 
@@ -37,6 +50,21 @@ describe('createPlayers',() => {
         score: 0
       }
     ]);
+  });
+});
+
+describe('getCards',() => {
+  const getCards = require('../game/game_logic').getCards;
+
+  it('should provide the given amount of cards',() => {
+    // expect(getCards(2)).to.be.an('array');
+    expect(getCards(20).length).to.be.equal(20);
+  });
+
+  it('should check ...',() => {
+
+    expect(getCards(4)).to.deep.equal(['a card', 'a card']);
+
   });
 });
 

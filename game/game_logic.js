@@ -6,15 +6,50 @@ class Player {
   }
 }
 
+const deck = {
+  suits: ['spades', 'diamonds', 'hearts', 'clubs'],
+  value: { min: 1, max: 13 },
+  quantity: 52
+};
+
+function getCards(cardsNum) {
+  const cards = [];
+
+  for (let i = 0; i < cardsNum; i++) {
+
+    const currentValue = (Math.floor(Math.random() * 13)) + 1;
+    const currentSuit = deck.suits[(Math.floor(Math.random() * deck.suits.length))];
+    const currentCard = { suit: currentSuit, value: currentValue};
+
+    // without this check below, I can get the correct amount of cards, but
+    //   cards may be repeated
+    // with the chek I can't get enough cards :(
+
+    // if(i > 0) {
+    //   const check = cards.find(card => card.suit == currentSuit);
+    //   if(!check) {
+    //     cards.push(currentCard);
+    //   }
+    // }
+    // else {
+    //   console.log('first');
+    //   cards.push(currentCard);
+    // }
+
+
+    cards.push(currentCard);
+
+  }
+
+  return cards;
+}
+
 function createPlayers(playersNum) {
   const players = [];
-
 
   for (let i = 1; i < (playersNum + 1); i++) {
     players.push(new Player('Player' + i));
   }
-
-  // players.push(new Player('P1'));
 
   return players;
 }
@@ -55,3 +90,5 @@ module.exports.checkTheWinner = checkTheWinner;
 module.exports.calculateScore = calculateScore;
 module.exports.Player = Player;
 module.exports.createPlayers = createPlayers;
+module.exports.deck = deck;
+module.exports.getCards = getCards;

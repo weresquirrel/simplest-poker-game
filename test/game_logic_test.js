@@ -1,5 +1,45 @@
 const expect = require('chai').expect;
 
+describe('Player',() => {
+  const Player = require('../game/game_logic').Player;
+
+  it('should look like this',() => {
+    // expect(new Player('Player1')).to.be.an('object');
+    expect(new Player('Player1')).to.deep.equal({
+      name: 'Player1',
+      cards: [],
+      score: 0
+    });
+  });
+});
+
+describe('createPlayers',() => {
+  const createPlayers = require('../game/game_logic').createPlayers;
+
+  it('should create one Player',() => {
+    // expect(createPlayers(1)).to.be.an('array');
+    expect(createPlayers(1)).to.deep.equal([{
+      name: 'Player1',
+      cards: [],
+      score: 0
+    }]);
+  });
+
+  it('should create 2 Players',() => {
+    expect(createPlayers(2)).to.deep.equal([
+      {
+        name: 'Player1',
+        cards: [],
+        score: 0
+      }, {
+        name: 'Player2',
+        cards: [],
+        score: 0
+      }
+    ]);
+  });
+});
+
 describe('calculateScore',() => {
   const calculateScore = require('../game/game_logic').calculateScore;
 

@@ -1,3 +1,25 @@
+class Player {
+  constructor(name) {
+    this.name = name;
+    this.cards = [];
+    this.score = 0;
+  }
+}
+
+function createPlayers(playersNum) {
+  const players = [];
+
+
+  for (let i = 1; i < (playersNum + 1); i++) {
+    players.push(new Player('Player' + i));
+  }
+
+  // players.push(new Player('P1'));
+
+  return players;
+}
+
+
 function calculateScore(players) {
 
   players.map(player => {
@@ -28,5 +50,8 @@ function checkTheWinner(players) {
   return winners;
 }
 
+
 module.exports.checkTheWinner = checkTheWinner;
 module.exports.calculateScore = calculateScore;
+module.exports.Player = Player;
+module.exports.createPlayers = createPlayers;

@@ -1,3 +1,4 @@
+
 class Player {
   constructor(name) {
     this.name = name;
@@ -54,7 +55,7 @@ function getCards(cardsNum) {
   //   if(!check) {
   //       cards.push(currentCard);
   //   }
-
+  // console.log(cards);
   return cards;
 }
 
@@ -64,7 +65,6 @@ function createPlayers(playersNum) {
   for (let i = 1; i < (playersNum + 1); i++) {
     players.push(new Player('Player' + i));
   }
-
   return players;
 }
 
@@ -100,7 +100,29 @@ function checkTheWinner(players) {
 }
 
 function startGame(playersNum, cardsNum) {
-  console.log(cardsNum + ' ' + playersNum);
+  if((playersNum * cardsNum) < (deck.quantity + 1)) {
+
+    console.log('start game');
+
+    const currentPlayers = createPlayers(playersNum);
+    console.log(currentPlayers);
+
+    currentPlayers.map(player => {
+      player.cards = getCards(cardsNum);
+    });
+    console.log(currentPlayers);
+
+    calculateScore(currentPlayers);
+    console.log(currentPlayers);
+
+    const winners = checkTheWinner(currentPlayers);
+
+    console.log(winners.map(winner => (winner.name + ' ')) + 'won!' + ` (with ${winners[0].score} scores)`);
+    return winners.map(winner => (winner.name + ' ')) + 'won!' + ` (with ${winners[0].score} scores)`;
+
+  } else {
+    return "There wouldn't be enough cards for everyone. Please choose less players or cards!";
+  }
 }
 
 

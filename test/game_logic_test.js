@@ -67,11 +67,10 @@ describe('getCards',() => {
     expect(['spades', 'hearts', 'diamonds', 'clubs']).to.include(getCards(1)[0].suit);
   });
 
-  it('should check ...',() => {
-
-    expect(getCards(4)).to.deep.equal(['a card', 'a card']);
-
-  });
+  // it('should check if all the cards are different',() => {
+  //   expect(getCards(4)).to.deep.equal(['a card', 'a card']);
+  //
+  // });
 });
 
 describe('calculateScore',() => {
@@ -143,4 +142,13 @@ describe('checkTheWinner',() => {
     );
   });
 
+});
+
+describe('startGame',() => {
+  const startGame = require('../src/game/game_logic').startGame;
+  it('should check if the players + cards combination was possible',() => {
+    expect(startGame(2, 51)).to.be.equal(
+      "There wouldn't be enough cards for everyone. Please choose less players or cards!");
+    expect(startGame(2, 5)).to.be.a('string');
+  });
 });

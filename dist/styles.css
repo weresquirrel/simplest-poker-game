@@ -5,4 +5,9 @@
 
 body {
   background-color: #9dde9d;
+  text-align: center;
+}
+
+main {
+  margin: 5vh 0;
 }

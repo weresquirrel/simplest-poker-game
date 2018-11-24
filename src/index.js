@@ -1,10 +1,10 @@
-console.log('up N ...');
+// console.log('up N ...');
 
 import { startGame } from './game/game_logic.js';
 
 
 function callback() {
-  console.log('... running');
+  // console.log('... running');
 
   let playersNum = 2;
   let cardsNum = 5;
@@ -12,21 +12,21 @@ function callback() {
 
   const playersForm = document.getElementById('players');
   const cardsForm = document.getElementById('cards');
+  const userInfo = document.getElementById('user-info');
   const startBtn = document.getElementsByTagName('button')[0];
 
   playersForm.addEventListener('change', () => {
-    playersNum = playersForm.value;
+    playersNum = parseInt(playersForm.value);
     // console.log(playersNum);
   });
 
   cardsForm.addEventListener('change', () => {
-    cardsNum = cardsForm.value;
+    cardsNum = parseInt(cardsForm.value);
     // console.log(cardsNum);
   });
 
   startBtn.addEventListener('click', () => {
-    // console.log(cardsNum + ' ' + playersNum);
-    startGame(playersNum, cardsNum);
+    userInfo.innerText = startGame(playersNum, cardsNum);
   })
 }
 

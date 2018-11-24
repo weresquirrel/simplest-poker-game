@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 
 describe('Deck',() => {
-  const deck = require('../game/game_logic').deck;
+  const deck = require('../src/game/game_logic').deck;
 
   it('should look like this',() => {
     // expect(deck).to.be.an('object');
@@ -14,7 +14,7 @@ describe('Deck',() => {
 });
 
 describe('Player',() => {
-  const Player = require('../game/game_logic').Player;
+  const Player = require('../src/game/game_logic').Player;
 
   it('should look like this',() => {
     // expect(new Player('Player1')).to.be.an('object');
@@ -27,7 +27,7 @@ describe('Player',() => {
 });
 
 describe('createPlayers',() => {
-  const createPlayers = require('../game/game_logic').createPlayers;
+  const createPlayers = require('../src/game/game_logic').createPlayers;
 
   it('should create one Player',() => {
     // expect(createPlayers(1)).to.be.an('array');
@@ -54,11 +54,17 @@ describe('createPlayers',() => {
 });
 
 describe('getCards',() => {
-  const getCards = require('../game/game_logic').getCards;
+  const getCards = require('../src/game/game_logic').getCards;
 
   it('should provide the given amount of cards',() => {
     // expect(getCards(2)).to.be.an('array');
     expect(getCards(20).length).to.be.equal(20);
+  });
+
+  it('should check if a single card is correct',() => {
+    expect(getCards(1)[0]).to.have.all.keys('suit', 'value');
+    expect(getCards(1)[0].value).to.be.within(1, 13);
+    expect(['spades', 'hearts', 'diamonds', 'clubs']).to.include(getCards(1)[0].suit);
   });
 
   it('should check ...',() => {
@@ -69,7 +75,7 @@ describe('getCards',() => {
 });
 
 describe('calculateScore',() => {
-  const calculateScore = require('../game/game_logic').calculateScore;
+  const calculateScore = require('../src/game/game_logic').calculateScore;
 
   it('should summarize the value of players cards and add it to the players scores',() => {
     players = [
@@ -113,7 +119,7 @@ describe('calculateScore',() => {
 });
 
 describe('checkTheWinner',() => {
-  const checkTheWinner = require('../game/game_logic').checkTheWinner;
+  const checkTheWinner = require('../src/game/game_logic').checkTheWinner;
 
   it('should find a player with the greatest score',() => {
     players = [

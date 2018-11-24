@@ -99,6 +99,10 @@ function checkTheWinner(players) {
   return winners;
 }
 
+function startGame(playersNum, cardsNum) {
+  console.log(cardsNum + ' ' + playersNum);
+}
+
 
 module.exports.checkTheWinner = checkTheWinner;
 module.exports.calculateScore = calculateScore;
@@ -106,3 +110,4 @@ module.exports.Player = Player;
 module.exports.createPlayers = createPlayers;
 module.exports.deck = deck;
 module.exports.getCards = getCards;
+module.exports.startGame = startGame;

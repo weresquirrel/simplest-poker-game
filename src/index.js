@@ -1,14 +1,9 @@
-// console.log('up N ...');
-
 import { startGame } from './game/game_logic.js';
 
-
 function callback() {
-  // console.log('... running');
 
   let playersNum = 2;
   let cardsNum = 5;
-
 
   const playersForm = document.getElementById('players');
   const cardsForm = document.getElementById('cards');
@@ -38,7 +33,6 @@ if (
 } else {
   document.addEventListener("DOMContentLoaded", callback);
 }
-
 
 // 1. get the info hom many players (playersNum), and cards (cardsNum) user want
   //  - check if it's even possible!
